@@ -22,7 +22,7 @@ type server struct {
 }
 
 // Map representing a database
-var moviedb = map[string][]string{"Pulp fiction": []string{"1994", "Quentin Tarantino", "John Travolta,Samuel Jackson,Uma Thurman,Bruce Willis"}}
+var moviedb = map[string][]string{"Pulp fiction": []string{"1994", "Quentin Tarantino", "John Travolta, Samuel Jackson, Uma Thurman, Bruce Willis"}}
 
 // GetMovieInfo implements movieapi.MovieInfoServer
 func (s *server) GetMovieInfo(ctx context.Context, in *movieapi.MovieRequest) (*movieapi.MovieReply, error) {
@@ -45,6 +45,11 @@ func (s *server) GetMovieInfo(ctx context.Context, in *movieapi.MovieRequest) (*
 
 	return reply, nil
 
+}
+
+func (s *server) SetMovieInfo(ctx context.Context, data *movieapi.MovieData) (*movieapi.Status, error) {
+	moviedb[data.Title] = []string{strconv.Itoa(int(data.Year)), data.Director, strings.Join(data.Cast, ",")}
+	return &movieapi.Status{Code: "Success"}, nil
 }
 
 func main() {
