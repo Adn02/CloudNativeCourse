@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"gitlab.com/arunravindran/cloudnativecourse/lab5-grpc/movieapi"
+	"github.com/adn02/cloudnativecourse/lab5/movieapi"
 	"google.golang.org/grpc"
 )
 

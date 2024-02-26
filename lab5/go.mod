@@ -1,3 +1,3 @@
-module gitlab.com/Adn02/cloudnativecourse
+module github.com/adn02/cloudnativecourse
 
 go 1.18
