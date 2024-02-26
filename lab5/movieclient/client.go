@@ -39,17 +39,10 @@ func main() {
 	}
 	log.Printf("Movie Info for %s %d %s %v", title, r.GetYear(), r.GetDirector(), r.GetCast())
 
+	// Set movie info
 	req, err := c.SetMovieInfo(ctx, &movieapi.MovieData{Title: "The Godfather", Year: 1972, Director: "Francis Ford Coppola", Cast: []string{"Marlon Brando", "Al Pacino", "James Caan"}})
 	if err != nil {
 		log.Fatalf("could not set movie info: %v", err)
 	}
 	log.Printf("Set movie info: %s", req.GetCode())
-
-	title = "The Godfather"
-
-	r, err = c.GetMovieInfo(ctx, &movieapi.MovieRequest{Title: title})
-	if err != nil {
-		log.Fatalf("could not get movie info: %v", err)
-	}
-	log.Printf("Movie Info for %s %d %s %v", title, r.GetYear(), r.GetDirector(), r.GetCast())
 }
