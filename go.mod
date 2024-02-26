@@ -1,4 +1,4 @@
-module github.com/adn02/cloudnativecourse
+module github.com/Adn02/CloudNativeCourse
 
 go 1.19
 

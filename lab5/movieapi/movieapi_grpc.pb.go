@@ -4,7 +4,7 @@
 // - protoc             v3.12.4
 // source: movieapi/movieapi.proto
 
-package movieapi
+package lab5
 
 import (
 	context "context"
