@@ -98,7 +98,7 @@ func TestSimpleHTTP(t *testing.T) {
 func TestGetWeather(t *testing.T) {
 	t.Parallel()
 	ts := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		f, err := os.Open("testdata/weather_data.json")
+		f, err := os.Open("testdata/weather_data.json") // Tested with weather_invalid_data, Error thrown
 		if err != nil {
 			t.Fatal(err)
 		}
