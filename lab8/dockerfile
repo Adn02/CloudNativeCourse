@@ -3,7 +3,7 @@ WORKDIR /src/
 COPY mongo.go /src/
 RUN go mod init github.com/adn02/cloudnativecourse
 RUN go mod tidy
-RUN CGO_ENABLED=0 go build -o /bin/mongo
+RUN CGO_ENABLED=0 go build -o /bin/mongo-webserver
 FROM scratch
-COPY --from=build /bin/mongo /bin/mongo
-ENTRYPOINT ["/bin/mongo"]
+COPY --from=build /bin/mongo-webserver /bin/mongo-webserver
+ENTRYPOINT ["/bin/mongo-webserver"]
